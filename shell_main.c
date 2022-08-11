@@ -6,6 +6,7 @@
  * @argv: Argument vector
  * Return: Returns condition
  */
+
 int main(__attribute__((unused)) int argc, char **argv)
 {
 	char *input, **cmd, **commands;
@@ -43,6 +44,18 @@ int main(__attribute__((unused)) int argc, char **argv)
 			{
 				stat = check_cmd(cmd, input, count, argv);
 			}
+			/**
+			 * if (commands[i + 1] == NULL)
+			(
+				free(commands);
+				break;
+			)
+			*/
+			free(cmd);
+		}
+		free(input);
+		free(commands);
+		wait(&stat);
 	}
 	return (stat);
 }
